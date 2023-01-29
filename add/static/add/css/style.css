@@ -1,0 +1,25 @@
+ .fmdata{
+    background-color: rgba(153, 156, 156, 0.247) ;
+    padding: 20px;
+    border-radius: 5px;
+
+
+}
+.fmdata p{
+ 
+
+}
+.fmdata p label{
+    font-size: 15px;
+    display: block;
+    padding: 4px 0;
+    color: rgba(0, 0, 0, 0.582);
+    font-weight: bold;
+}
+.fmdata p input{
+    width: 100%;
+    padding: 4px;
+    border-radius: 5px;
+    border: 2px solid rgba(90, 89, 89, 0.658);
+
+}

@@ -1,0 +1,97 @@
+{% extends 'core/core.html' %} {% block content %}
+{% load static %}
+{% block css %}
+
+<link rel="stylesheet" href="{% static 'add/css/style.css' %}">
+
+{% endblock css %}
+
+
+
+
+<h2 class="p-3">
+  <button type="button" class="btn text-light btn-info fw-bold fs-5">
+    Add new 
+</button>
+ 
+ </h2>
+
+<div class="row  mx-3">
+  <div class="col-md-4 border shadow rounded">
+    <div class="add py-3 px-2">
+  
+        <div class="card w-100" style="width: 18rem;">
+            <img class='img border' src="https://static.vecteezy.com/system/resources/previews/005/315/945/original/stock-abstract-online-shop-logo-designs-template-illustration-graphic-of-smartphone-free-vector.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Name : {{si.name}}</h5>
+              <p class="card-text">Slug : {{si.slug}}</p>
+              <p class="card-text">Brand : {{si.brand}}</p>
+              <p class="card-text">Price : {{si.price}}</p>
+              <a href="{% url 'addnew' %}" class="btn btn-primary">Back</a>
+              <a href="{% url 'edit' si.id %}" class="btn btn-warning">Edit</a>
+            </div>
+          </div>
+
+
+    </div>
+  </div>
+  <div class="col-md-8 ">
+    
+    <table class="table  table-striped table-hover">
+      <thead>
+        <tr class="table-dark">
+          <th scope="col">Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Brand</th>
+          <th scope="col">Slug</th>
+
+          <th scope="col">Price</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% if da %}
+        
+        {% for i in da %}
+        
+           <tr class=" ">
+             <td>{{i.id}}</td>
+             <td >{{i.name}}</td>
+             <td >{{i.brand}}</td>
+             <td >{{i.slug}}</td>
+          <td>{{i.price}}</td>
+          <td>
+               <a  href="{% url 'see' i.id %}" class='text-info'>
+                <i class="fa-solid fa-eye" ></i>
+               </a>
+               <a href="{% url 'edit' i.id %}" class='text-primary'>
+                <i class="fa-solid fa-pen-to-square"></i>
+               </a>
+               <a onclick="del()" href="{% url 'delete' i.id %}" class='text-warning'>
+                <i class="fa-solid fa-trash"></i>
+               </a>
+          </td>
+        </tr>
+        
+        
+        {% endfor %}
+         {% else %}
+         <tr class=" ">
+          
+       <td colspan="6" class=' fw-bold text-center bg-light'>!! No data avabale</td>
+     </tr>
+
+        {% endif %}
+        
+
+     
+ 
+     
+      </tbody>
+    </table>
+  </div>
+</div>
+
+ 
+
+{% endblock content %}

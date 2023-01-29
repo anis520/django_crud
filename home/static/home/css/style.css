@@ -1,0 +1,14 @@
+.banners{
+height: 100px;}
+ 
+
+.banners img{
+
+ margin-top: 20px !important;
+  width:95%;
+  margin:0 auto;
+  display: block;
+  height: 70vh;
+   object-fit: cover;
+
+}
